@@ -53,11 +53,11 @@ def start_word_game(sentence_list):
             end_time = time.time()
             elasped_time_min = (end_time - start_time)/60
 
-            WPM = calculate_WPM(error, len(user_input), elasped_time_min)
+            WPM = calculate_WPM(error, len_str_list, elasped_time_min)
             if(error == 1):
-                print('\nYou have completed {} characters with {} error in {} minutes'.format(len(user_input), error, elasped_time_min))
+                print('\nYou have completed {} characters with {} error in {} minutes'.format(len_str_list, error, elasped_time_min))
             else:
-                print('\nYou have completed {} characters with {} errors in {} minutes'.format(len(user_input), error, elasped_time_min))
+                print('\nYou have completed {} characters with {} errors in {} minutes'.format(len_str_list, error, elasped_time_min))
             print('Your WPM is {}\n'.format(WPM))
 
             while not valid_input:
