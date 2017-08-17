@@ -7,7 +7,8 @@ import logging
 logging.basicConfig(filename="typer.log", level = logging.DEBUG)
 
 logging.debug("Connecting to PostgreSQL")
-connection = psycopg2.connect(database="typer")
+# Change this to your local database and database user and password
+connection = psycopg2.connect(database="typer", user="dev", password="123")
 logging.debug("Database connection established.")
 
 easy1 = ["Congratulations, you have selected the easy difficulty!",
