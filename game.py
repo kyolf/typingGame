@@ -51,7 +51,19 @@ easy_list = [easy1, easy2, easy3]
 medium_list = [medium1, medium2, medium3]
 hard_list = [hard1, hard2, hard3]
 
+def select_list_by_difficulty(difficulty):
+    """Returns a sentence list depending on the difficulty
+    If difficulty a string other than easy or hard, a sentence list is selected from medium by default"""
+    if difficulty == "easy":
+        return rand_sentence_list(easy_list)
+    elif difficulty == "hard":
+        return rand_sentence_list(hard_list)
+    else:
+        return rand_sentence_list(medium_list)
+  
+
 def rand_sentence_list(sentence_list):
+    """Returns a random sentence list from the difficulty list"""
     rand_index = random.randint(0, len(sentence_list) - 1)
     print('this is random {}'.format(rand_index))
     return sentence_list[rand_index]
@@ -102,7 +114,7 @@ def print_WPM(WPM):
     else:
         print('Practice more you are {} WPM from being average\n'.format( 50 - WPM ))
 
-def start_word_game(sentence_list):
+def start_word_game(sentence_list, difficulty):
     """Start the game"""
     game_running = True
     i = 0
@@ -139,6 +151,7 @@ def start_word_game(sentence_list):
                     num_errors = 0
                     len_str_list = 0
                     start_time = time.time()
+                    sentence_list = select_list_by_difficulty(difficulty)
                     valid_input = True
 
                 elif input_lower == 'm' or input_lower == 'menu' or input_lower == 'e' or input_lower == 'exit':
@@ -174,13 +187,13 @@ if __name__ == "__main__":
 
         #Start Game
         elif user_input == 'ea' or user_input == 'easy':
-            user_input = start_word_game(rand_sentence_list(easy_list))
+            user_input = start_word_game(rand_sentence_list(easy_list), "easy")
 
         elif user_input == 'med' or user_input == 'medium':
-            user_input = start_word_game(rand_sentence_list(medium_list))
+            user_input = start_word_game(rand_sentence_list(medium_list), "medium")
 
         elif user_input == 'h' or user_input == 'hard':
-            user_input = start_word_game(rand_sentence_list(hard_list))
+            user_input = start_word_game(rand_sentence_list(hard_list), "hard")
         
         #End Game
         elif user_input == 'e' or user_input == 'exit':
