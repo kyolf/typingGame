@@ -1,6 +1,14 @@
 
 import time
 import random
+import psycopg2
+import logging
+
+logging.basicConfig(filename="typer.log", level = logging.DEBUG)
+
+logging.debug("Connecting to PostgreSQL")
+connection = psycopg2.connect(database="typer")
+logging.debug("Database connection established.")
 
 easy1 = ["Congratulations, you have selected the easy difficulty!",
         "This should not be hard to type.",
