@@ -4,7 +4,7 @@ import random
 
 easy1 = ["Congratulations, you have selected the easy difficulty!",
         "This should not be hard to type.",
-        "This should be easy to type"]
+        "This should be easy to type."]
 
 easy2 = ["I love to go to sleep!",
         "What about you?",
