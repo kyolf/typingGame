@@ -34,8 +34,6 @@ def select_list_by_difficulty(difficulty):
 def rand_sentence_list(sentence_list):
     """Returns a random sentence list from the difficulty list"""
     rand_index = random.randint(0, len(sentence_list) - 1)
-    print('this is random {}'.format(rand_index))
-    print('sentence is {}'.format(sentence_list[rand_index]))
     return sentence_list[rand_index]
 
 def is_correct(user_input, string):
@@ -84,6 +82,37 @@ def print_WPM(WPM):
     else:
         print('Practice more you are {} WPM from being average\n'.format( 50 - WPM ))
 
+def outer_menu():
+    print('\nWelcome to Typer: ')
+    print('Come see how fast you can type')
+    print('Select ea for easy,  med for medium, or h for hard difficulty')
+    valid_input = False
+    user_input = ''
+    while not valid_input:
+        user_input = input('\n[E]asy    [N]ormal    [H]ard    [Q]uit:\n').lower()
+        if user_input == 'e' or user_input == 'q' or user_input == 'n' or user_input == 'h':
+            valid_input = True
+        else:
+            print('\nEnter valid input shown below')
+    return user_input
+
+def inner_menu():
+    input_lower = ''
+    valid_input = False
+    while not valid_input:
+        input_lower = input('[R]eset the game    [M]enu to return menu    [Q]uit the game\n').lower()
+        if input_lower == 'r':
+            valid_input = True
+
+        elif input_lower == 'm' or input_lower == 'q':
+            game_running = False
+            valid_input = True
+        
+        else:
+            print('\nEnter valid input shown below')
+
+    return input_lower
+
 def start_word_game(sentence_list, difficulty):
     """Start the game"""
     game_running = True
@@ -103,7 +132,6 @@ def start_word_game(sentence_list, difficulty):
             num_errors += calculate_num_errors(user_input, sentence_list[i])
         
         i += 1
-        valid_input = False
 
         # End Menu
         if(i == len(sentence_list)):
@@ -113,27 +141,14 @@ def start_word_game(sentence_list, difficulty):
             WPM = calculate_WPM(num_errors, len_str_list, elasped_time_min)
             print_result(len_str_list, num_errors, elasped_time_min)
             print_WPM(WPM)
+            output = inner_menu()
 
-            while not valid_input:
-                input_lower = input('[R]eset the game    [M]enu to return menu    [Q]uit the game\n').lower()
-                if input_lower == 'r':
-                    i = 1
-                    num_errors = 0
-                    len_str_list = 0
-                    start_time = time.time()
-                    sentence_list = select_list_by_difficulty(difficulty)
-                    valid_input = True
-
-                elif input_lower == 'm' or input_lower == 'q':
-                    game_running = False
-                    valid_input = True
-                
-                else:
-                    print('\nEnter valid input shown below')
-
-                output = input_lower
-
-            if output == 'r' or output == 'reset':
+            if output == 'r':
+                i = 1
+                num_errors = 0
+                len_str_list = 0
+                start_time = time.time()
+                sentence_list = select_list_by_difficulty(difficulty)
                 continue
             else:
                 return output
@@ -144,16 +159,7 @@ if __name__ == "__main__":
     while menu_running:
         #Menu
         if user_input == 'm':
-            print('\nWelcome to Typer: ')
-            print('Come see how fast you can type')
-            print('Select ea for easy,  med for medium, or h for hard difficulty')
-            user_input = input('\n[E]asy    [N]ormal    [H]ard    [Q]uit:\n').lower()
-            valid_input = False
-            while not valid_input:
-                if user_input == 'e' or user_input == 'q' or user_input == 'n' or user_input == 'h':
-                    valid_input = True
-                else:
-                    print('\nEnter valid input shown below')
+            user_input = outer_menu()
 
         #Start Game
         elif user_input == 'e':

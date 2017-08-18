@@ -17,9 +17,10 @@ I made this in order to practice my python skills.
 6. Once the server is running, create a database typer with the user dev and password 123
 7. Then run `psql -U dev -f ~/path-to-create_difficulty_tables.sql typer` and enter password. This is to create the tables in the database typer.
 8. Then run `psql -U dev -f ~/path-to-sentences.sql typer` and enter password. This is to insert the values in the database typer.
-9. Then run `python game.py` in the terminal where your typer folder is located at.
-10. Play the game!
-11. If you want to add more to the easy, normal, and hard list, remember to drop all the tables in the database by using `psql -U dev -f ~/path-to-drop_tables.sql typer` and run steps 7 and 8 again once you change the sentences.sql file.
+9. Import `python3 -m pip install psycopg2` if on Windows or `sudo python3 -m pip install psycopg2` if on Linux or Mac 
+10. Then run `python game.py` in the terminal where your typer folder is located at.
+11. Play the game!
+12. If you want to add more to the easy, normal, and hard list, remember to drop all the tables in the database by using `psql -U dev -f ~/path-to-drop_tables.sql typer` and run steps 7 and 8 again once you change the sentences.sql file.
 
 ## Need To Fix
 * The Error Algorithm
