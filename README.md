@@ -5,8 +5,8 @@ Typer-K is a console typing game in which you are prompted to type the sentence 
 I made this in order to practice my python skills.
 
 ## Stack
-**Programming Languages:** PostgreSQL, Python3 <br/>
-**Tools:** command line, Visual Studio Code, 
+**Programming Languages:** SQL, Python3 <br/>
+**Tools:** command line, Visual Studio Code, postgreSQL 
 
 ## How to use this?
 
