@@ -119,7 +119,7 @@ def start_word_game(sentence_list, difficulty):
         i += 1
 
         # End Menu
-        if(i == len(sentence_list)):
+        if i == len(sentence_list):
             end_time = time.time()
             elasped_time_min = (end_time - start_time)/60
 
