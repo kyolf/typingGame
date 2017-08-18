@@ -84,7 +84,7 @@ def print_WPM(WPM):
 def outer_menu():
     print('\nWelcome to Typer: ')
     print('Come see how fast you can type')
-    print('Select ea for easy,  med for medium, or h for hard difficulty')
+    print('Type e for easy,  n for normal, or h for hard difficulty')
     valid_input = False
     user_input = ''
     while not valid_input:
