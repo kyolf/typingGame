@@ -23,25 +23,12 @@ def select_list_by_difficulty(difficulty):
     """Returns a sentence list depending on the difficulty
     If difficulty a string other than easy or hard, a sentence list is selected from medium by default"""
     if difficulty == "easy":
-        return rand_sentence_list(easy_list)
+        return random.choice(easy_list)
     elif difficulty == "hard":
-        return rand_sentence_list(hard_list)
+        return random.choice(hard_list)
     else:
-        return rand_sentence_list(medium_list)
+        return random.choice(medium_list)
   
-
-def rand_sentence_list(sentence_list):
-    """Returns a random sentence list from the difficulty list"""
-    rand_index = random.randint(0, len(sentence_list) - 1)
-    return sentence_list[rand_index]
-
-def is_correct(user_input, string):
-    """checks if the string typed in is correct"""
-    if(user_input == string):
-        return True
-    else:
-        return False
-
 def calculate_num_errors(user_input, sentence):
     index = 0
     num_errors = 0
@@ -49,8 +36,7 @@ def calculate_num_errors(user_input, sentence):
         if user_char != orig_char:
             num_errors += 1
         index += 1
-    for sen_index in range(index, len(sentence)):
-        num_errors += 1
+    num_errors += len(sentence) - index
     return num_errors
 
 
@@ -124,7 +110,7 @@ def start_word_game(sentence_list, difficulty):
         user_input = input('\n' + sentence_list[i] + '\n\nType the sentence shown above!\n')
         len_str_list += len(user_input)
 
-        if is_correct(user_input, sentence_list[i]):
+        if user_input == sentence_list[i]:
             print('Correct\n')
         else:
             print('Incorrect\n')
@@ -162,13 +148,13 @@ if __name__ == "__main__":
 
         #Start Game
         elif user_input == 'e':
-            user_input = start_word_game(rand_sentence_list(easy_list), "easy")
+            user_input = start_word_game(random.choice(easy_list), "easy")
 
         elif user_input == 'n':
-            user_input = start_word_game(rand_sentence_list(medium_list), "medium")
+            user_input = start_word_game(random.choice(medium_list), "medium")
 
         elif user_input == 'h':
-            user_input = start_word_game(rand_sentence_list(hard_list), "hard")
+            user_input = start_word_game(random.choice(hard_list), "hard")
         
         #End Game
         elif user_input == 'q':
