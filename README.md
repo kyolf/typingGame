@@ -6,7 +6,7 @@ I made this in order to practice my python skills.
 
 ## Stack
 **Programming Languages:** SQL, Python3 <br/>
-**Tools:** command line, Visual Studio Code, postgreSQL 
+**Tools:** Command Line, Visual Studio Code, PostgreSQL 
 
 ## How to use this?
 
