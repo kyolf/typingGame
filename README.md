@@ -1,6 +1,7 @@
 # Typer-K
 
 Typer-K is a console typing game in which you are prompted to type the sentence that is shown.
+
 I made this in order to practice my python skills.
 
 ## Stack
@@ -24,3 +25,4 @@ I made this in order to practice my python skills.
 
 ## Need To Fix
 * The Error Algorithm
+* * The reason why this need to be fixed is because right now, the error algorithm is checking if the characters in the user input is at the same spot as the characters in the sentence input.

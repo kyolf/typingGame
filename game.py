@@ -12,7 +12,6 @@ logging.debug("Database connection established.")
 cursor = connection.cursor()
 
 def fetch_list(list_name):
-    print ('SELECT * FROM ' + list_name)
     cursor.execute('SELECT * FROM ' + list_name)
     return cursor.fetchall()
 
