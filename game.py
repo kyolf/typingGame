@@ -9,64 +9,16 @@ logging.debug("Connecting to PostgreSQL")
 # Change this to your local database and database user and password
 connection = psycopg2.connect(database="typer", user="dev", password="123")
 logging.debug("Database connection established.")
-cursor = connection.cursor
+cursor = connection.cursor()
 
 def fetch_list(list_name):
-    cursor.execute('SELECT * FROM {}'.format(list_name))
+    print ('SELECT * FROM ' + list_name)
+    cursor.execute('SELECT * FROM ' + list_name)
     return cursor.fetchall()
 
 easy_list = fetch_list('easy_list')
 medium_list = fetch_list('medium_list')
 hard_list = fetch_list('hard_list')
-
-# easy1 = ["Congratulations, you have selected the easy difficulty!",
-#         "This should not be hard to type.",
-#         "This should be easy to type"]
-
-# easy2 = ["I love to go to sleep!",
-#         "What about you?",
-#         "Sleep is awesome!!!"]
-
-# easy3 = ["The club isn't the best place to find a lover",
-#         "So the bar is where I go",
-#         "Me and my friends at the table doing shots"]
-
-# medium1 = ["Paragraphs are the building blocks of papers.",
-#         "Many students define paragraphs in terms of length: a paragraph is a group of at least five sentences, a paragraph is half a page long, etc.",
-#         "In reality, though, the unity and coherence of ideas among sentences is what constitutes a paragraph."]
-
-# medium2 = ["This quote is in the article, Programming's Dirtiest Little Secret, by Steve Yegge.",
-#         "\"I can't understand why professional programmers out there allow themselves to have a career without teaching themselves to type.",
-#         "It doesn't make any sense. It's like being, I dunno, an actor without knowing how to put your clothes on.\""]
-
-# medium3 = ["\"Tests are a good thing. The knowledge gained from a night of cramming will be all but forgotten once you hit adulthood.",
-#         "And that's fine. The experience you gain through competition, having sharpened your skills and broadened " +
-#         "your minds all under the same set of rules? That's the real treasure.\"",
-#         "Assassination Classroom, by Korosensei"]
-
-# hard1 = ["According to Martin Krzywinski, a Canadian specialist in bioinformatics, these are some of the " + 
-#         "hardest words to type on a standard QWERTY keyboard: pizazz, piazzas, pizzas, suburban, assuming, obstinance, foramens.",
-#         "The difficulty of these words was determined by the physical effort used to type them.",
-#         "Doubled letters can be hard, especially when the letter is typed with one of the little."]
-
-# hard2 = ['As you can see in the title this is "A very hard typing test text." ' +
-#         "Someone must have the worldwide record as at least 60 seconds to he put up on my typing test wall! " +
-#         "I will be checking this page every day to see if someone got this score.",
-#         "Most likely I will! Me! It's very fun making these types of elaborate things " +
-#         "because you can write whatever you want! And input commonly mispeled words!",
-#         "As you probably noticed by now, that mistake was on purpose. Or was it? " + 
-#         "Do your best! I will do my best. Believe in yourself. This thing is gonna repeat for hours. And hours."]
-
-# hard3 = ["A plasma display panel (PDP) is a type of flat panel display now commonly " +
-#         "used for large TV displays (typically above 37-inch or 940 mm).",
-#         "Many tiny cells located between two panels of glass hold an inert mixture of noble gases (neon and xenon).",
-#         "The gas in the cells is electrically turned into a plasma which then excites phosphors to emit light. " +
-#         "The display panel is only about 6 cm (2.5 inches) thick, while the total " + 
-#         "thickness, including electronics, is less than 10 cm (4 inches)."]
-
-# easy_list = [easy1, easy2, easy3]
-# medium_list = [medium1, medium2, medium3]
-# hard_list = [hard1, hard2, hard3]
 
 def select_list_by_difficulty(difficulty):
     """Returns a sentence list depending on the difficulty
@@ -83,6 +35,7 @@ def rand_sentence_list(sentence_list):
     """Returns a random sentence list from the difficulty list"""
     rand_index = random.randint(0, len(sentence_list) - 1)
     print('this is random {}'.format(rand_index))
+    print('sentence is {}'.format(sentence_list[rand_index]))
     return sentence_list[rand_index]
 
 def is_correct(user_input, string):
@@ -134,7 +87,7 @@ def print_WPM(WPM):
 def start_word_game(sentence_list, difficulty):
     """Start the game"""
     game_running = True
-    i = 0
+    i = 1
     output = ''
     num_errors = 0
     len_str_list = 0
@@ -164,7 +117,7 @@ def start_word_game(sentence_list, difficulty):
             while not valid_input:
                 input_lower = input('[R]eset the game    [M]enu to return menu    [E]xit the game\n').lower()
                 if input_lower == 'r' or input_lower == 'reset':
-                    i = 0
+                    i = 1
                     num_errors = 0
                     len_str_list = 0
                     start_time = time.time()
