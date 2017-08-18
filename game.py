@@ -172,5 +172,7 @@ if __name__ == "__main__":
         
         #End Game
         elif user_input == 'q':
+            print('\nYou have exited out of the game')
+            print('Thanks for playing!! :^)')
             menu_running = False
     

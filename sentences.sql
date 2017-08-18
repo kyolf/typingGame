@@ -27,6 +27,9 @@ VALUES ('According to Martin Krzywinski, a Canadian specialist in bioinformatics
         ('As you can see in the title this is "A very hard typing test text." Someone must have the worldwide record as at least 60 seconds to he put up on my typing test wall! I will be checking this page every day to see if someone got this score.',
         'Most likely I will! Me! It''s very fun making these types of elaborate things because you can write whatever you want! And input commonly mispeled words!',
         'As you probably noticed by now, that mistake was on purpose. Or was it? Do your best! I will do my best. Believe in yourself. This thing is gonna repeat for hours. And hours.'),
-        ('A plasma display panel (PDP) is a type of flat panel display now commonly used for large TV displays (typically above 37-inch or 940 mm).',
-        'Many tiny cells located between two panels of glass hold an inert mixture of noble gases (neon and xenon).',
-        'The gas in the cells is electrically turned into a plasma which then excites phosphors to emit light. The display panel is only about 6 cm (2.5 inches) thick, while the total thickness, including electronics, is less than 10 cm (4 inches).');
+        ('It''s Supercalifragilisticexpialidocious!',
+        'Even though the sound of it',
+        'Is something quite atrocious'),
+        ('stewardesses johnny-jump-jump caresses pizzazz',
+        'suburban obstinate pneumonoultramicroscopicsilicovolcanoconiosis',
+        'qewtuop Xaerfcfa');
