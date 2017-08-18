@@ -140,7 +140,7 @@ def start_word_game(sentence_list, difficulty):
 
 if __name__ == "__main__":
     menu_running = True
-    user_input = 'menu'
+    user_input = 'm'
     while menu_running:
         #Menu
         if user_input == 'm':
