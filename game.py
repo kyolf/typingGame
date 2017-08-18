@@ -115,8 +115,8 @@ def start_word_game(sentence_list, difficulty):
             print_WPM(WPM)
 
             while not valid_input:
-                input_lower = input('[R]eset the game    [M]enu to return menu    [E]xit the game\n').lower()
-                if input_lower == 'r' or input_lower == 'reset':
+                input_lower = input('[R]eset the game    [M]enu to return menu    [Q]uit the game\n').lower()
+                if input_lower == 'r':
                     i = 1
                     num_errors = 0
                     len_str_list = 0
@@ -124,7 +124,7 @@ def start_word_game(sentence_list, difficulty):
                     sentence_list = select_list_by_difficulty(difficulty)
                     valid_input = True
 
-                elif input_lower == 'm' or input_lower == 'menu' or input_lower == 'e' or input_lower == 'exit':
+                elif input_lower == 'm' or input_lower == 'q':
                     game_running = False
                     valid_input = True
                 
@@ -143,29 +143,29 @@ if __name__ == "__main__":
     user_input = 'menu'
     while menu_running:
         #Menu
-        if user_input == 'menu' or user_input == 'm':
+        if user_input == 'm':
             print('\nWelcome to Typer: ')
             print('Come see how fast you can type')
             print('Select ea for easy,  med for medium, or h for hard difficulty')
-            user_input = input('\n[Ea]sy    [Med]ium    [H]ard    [E]xit:\n').lower()
+            user_input = input('\n[E]asy    [N]ormal    [H]ard    [Q]uit:\n').lower()
             valid_input = False
             while not valid_input:
-                if user_input == 'ea' or user_input == 'easy' or user_input == 'e' or user_input == 'exit' or user_input == 'med' or user_input == 'medium' or user_input == 'h' or user_input == 'hard':
+                if user_input == 'e' or user_input == 'q' or user_input == 'n' or user_input == 'h':
                     valid_input = True
                 else:
                     print('\nEnter valid input shown below')
 
         #Start Game
-        elif user_input == 'ea' or user_input == 'easy':
+        elif user_input == 'e':
             user_input = start_word_game(rand_sentence_list(easy_list), "easy")
 
-        elif user_input == 'med' or user_input == 'medium':
+        elif user_input == 'n':
             user_input = start_word_game(rand_sentence_list(medium_list), "medium")
 
-        elif user_input == 'h' or user_input == 'hard':
+        elif user_input == 'h':
             user_input = start_word_game(rand_sentence_list(hard_list), "hard")
         
         #End Game
-        elif user_input == 'e' or user_input == 'exit':
+        elif user_input == 'q':
             menu_running = False
     

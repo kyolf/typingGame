@@ -13,7 +13,7 @@ I made this in order to practice my python skills.
 2. Make sure python3 and postgreSQL is downloaded
 3. Do `cd path/to/your/folder` in your terminal. 
 4. Do `pg_ctl status` in your terminal to see if a PostgreSQL local server is running.
-5. If it is, do ` pg_ctl stop` in terminal to shut down server. If it is not, do `pg_ctl start -l "$PGDATA/server.log` in terminal to start database.
+5. If it is, do ` pg_ctl stop` in terminal to shut down server. If it is not, do `pg_ctl start -l "$PGDATA/server.log"` in terminal to start database.
 6. Once the server is running, create a database typer with the user dev and password 123
 7. Then run `psql -U dev -f ~/path-to-create_difficulty_tables.sql typer` and enter password. This is to create the tables in the database typer.
 8. Then run `psql -U dev -f ~/path-to-sentences.sql typer` and enter password. This is to insert the values in the database typer.
